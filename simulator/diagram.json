@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": 27.4, "left": -69.6, "attrs": {} },
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": 25.55,
+      "left": -188.45,
+      "attrs": { "env": "micropython-20231005-v1.21.0" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -22.8, "left": -5.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 72,
+      "left": -0.55,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "r1:1", "bb1:10t.b", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:10b.f", "", [ "$bb" ] ],
+    [ "bb1:10t.a", "led1:A", "red", [ "v0" ] ],
+    [ "bb1:10b.j", "pico:GP18", "red", [ "v0" ] ],
+    [ "pico:GND.8", "led1:C", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
